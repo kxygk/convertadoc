@@ -11,9 +11,9 @@
   [filestr] ;; "/home/kxygk/Projects/stars/Zeeden2023.adoc"
   (let [input-file (clojure.java.io/file filestr)
         adoctor    (org.asciidoctor.Asciidoctor$Factory/create)
-        #_#_
         reveal-option (doto (org.asciidoctor.OptionsBuilder/options)
-                        (.backend "revealjs")
+                        (.backend "html5")
+                        #_#_
                         (.safe org.asciidoctor.SafeMode/UNSAFE)
                         #(.attributes (.attribute (org.asciidoctor.AttributesBuilder/attributes)
                                                  "revealjsdir"
@@ -24,7 +24,6 @@
                                  ["asciidoctor-revealjs"]))
     (.convertFile adoctor
                   input-file
-                  #_
                   reveal-option)))
 
 (defn
